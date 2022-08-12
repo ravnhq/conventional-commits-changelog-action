@@ -1,0 +1,30 @@
+name: "Conventional Changelog Release Info Generator"
+description: "Generate a changelog and release information based on conventional commits"
+author: "RavnHQ"
+inputs:
+  tag-prefix:
+    required: false
+    description: "Prefix used for version tags"
+    default: "v"
+  preset:
+    required: false
+    description: "Preset to use. One of: angular, atom, codemirror, conventionalcommits, ember, eslint, express, jquery, jshint"
+    default: "angular"
+  version:
+    required: false
+    description: "The next release version. If one is not provided the next release will be inferred based on previous commits"
+    default: ""
+outputs:
+  changelog:
+    description: "Full generated changelog"
+  clean_changelog:
+    description: "Generated changelog without the version header"
+  version:
+    description: "The version of the next release"
+  tag:
+    description: "The tag for the next release can be changed with the tag-prefix input"
+  empty:
+    description: "Whether or not there were changes generated in the changelog"
+runs:
+  using: "node16"
+  main: "dist/index.js"
