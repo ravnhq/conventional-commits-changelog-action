@@ -1,0 +1,19 @@
+name: "Conventional Commits Changelog Generator"
+description: "Generate a changelog and release information based on conventional commits"
+author: "RavnHQ"
+inputs:
+  tag-prefix:
+    required: true
+    description: "Prefix used for version tags"
+    default: "v"
+  preset:
+    required: true
+    description: ""
+    default: "angular"
+  version:
+    required: false
+    description: "The next release version. If one is not provided the next release will be inferred based on previous commits"
+    default: ""
+runs:
+  using: "node16"
+  main: "dist/index.js"
